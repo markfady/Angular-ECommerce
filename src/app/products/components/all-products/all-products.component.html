@@ -11,7 +11,7 @@
 </div>
 
 <div class="row">
-    <div class="col-md-3 col-sm-12" *ngFor="let item of products">
+    <div class="col-md-3 col-sm-12" *ngFor="let item of products | async">
 
 <div class="card" style="width: 18rem;">
 
@@ -19,7 +19,8 @@
     <div class="card-body">
       <h5 class="card-title">{{item.title}}</h5>
       <p class="card-text">{{item.description}}</p>
-      <a href="#" class="btn btn-primary">Action</a>
+      <a href="#" class="btn btn-primary">Add to cart</a>
+      <span>{{item.price}}$</span>
     </div>
   </div> 
 </div>
