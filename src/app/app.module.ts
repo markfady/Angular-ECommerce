@@ -7,6 +7,9 @@ import { AllProductsComponent } from './products/components/all-products/all-pro
 import { ProductsDetailsComponent } from './products/components/products-details/products-details.component';
 import { CartComponent } from './cart/components/cart/cart.component';
 import { HomeComponent } from './home/home.component';
+import { CommonModule } from '@angular/common';
+import { ProductsModule } from './products/products.module';
+import { CartModule } from './cart/cart.module';
 
 const routes:Routes=[
   {path:'',component:HomeComponent},
@@ -20,8 +23,11 @@ const routes:Routes=[
     AppComponent,
     HomeComponent
   ],
-  imports: [
+  imports: [ //Must import all other modules here so in each module we can use *ngFor
+    CommonModule,
     BrowserModule,
+    ProductsModule,
+    CartModule,
     RouterModule.forRoot(routes),
     SharedModule
   ],
