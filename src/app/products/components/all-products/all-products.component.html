@@ -10,12 +10,17 @@
     </select>
 </div>
 
+<div class="row">
+    <div class="col-md-3 col-sm-12" *ngFor="let item of products">
+
 <div class="card" style="width: 18rem;">
-        
-    <img class="card-img-top" src="..." alt="Card image cap">
+
+    <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Product Name</h5>
-      <p class="card-text">Product Description</p>
+      <h5 class="card-title">{{item.title}}</h5>
+      <p class="card-text">{{item.description}}</p>
       <a href="#" class="btn btn-primary">Action</a>
     </div>
-  </div>
+  </div> 
+</div>
+</div>
