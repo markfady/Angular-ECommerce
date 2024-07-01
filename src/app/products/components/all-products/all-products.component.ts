@@ -1,14 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../service/products.service';
+import { Observable } from 'rxjs';
+import { Product } from '../../productsInterface';
 
-interface Product {
-  id: number;
-  name: string;
-  image: string;
-  description: string;
-  price: number;
-  title:string;
-}
 
 @Component({
   selector: 'pm-all-products',
@@ -17,19 +11,11 @@ interface Product {
 })
 export class AllProductsComponent implements OnInit {
   
-  products: Product[] = [];
+  products!: Observable<Product[]> ;
 
   constructor(private service: ProductsService) { }
 
   ngOnInit(): void {
-    this.getProducts();
-  }
-
-  getProducts(): void {
- this.service.getAllProducts().subscribe((res:any)=>{
-  this.products=res
-  console.log(res)
- })
-   
+    this.products = this.service.getAllProducts();
   }
 }
