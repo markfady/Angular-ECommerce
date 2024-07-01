@@ -16,7 +16,15 @@ div.card {
 
 a {
   text-decoration: none; 
+  color:white !important
 }
 a:hover {
   text-decoration: underline;
+}
+li{
+  list-style-type: none;
+  cursor: pointer;
+}
+nav{
+  color: white;
 }
