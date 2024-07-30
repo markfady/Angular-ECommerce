@@ -11,11 +11,33 @@ import { Product } from '../../productsInterface';
 })
 export class AllProductsComponent implements OnInit {
   
-  products!: Observable<Product[]> ;
+  products: Product[] = [];
+  categories:any[]=[]
 
   constructor(private service: ProductsService) { }
 
   ngOnInit(): void {
-    this.products = this.service.getAllProducts();
+    this.getProducts()
+    this.filteredCategories()
+  }
+
+  //subscribe to get all products
+  getProducts(){
+
+    this.service.getAllProducts().subscribe((res:any)=>{
+    this.products=res
+    },error=>{
+      console.log(error)
+    })
+
+  }
+  //subscribe to get the category names and loop on it inside the select statement
+  filteredCategories(){
+    this.service.getCategories().subscribe((res:any)=>{
+      this.categories=res
+      console.log(res)
+    },error=>{
+      console.log(error)
+    })
   }
 }

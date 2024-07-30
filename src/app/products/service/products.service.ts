@@ -12,4 +12,7 @@ export class ProductsService {
   getAllProducts():Observable<Product[]>{
     return this.http.get<Product[]>('https://fakestoreapi.com/products')
   }
+  getCategories(){
+    return this.http.get<Product[]>('https://fakestoreapi.com/products/categories')
+  }
 }
