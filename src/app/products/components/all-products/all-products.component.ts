@@ -40,4 +40,15 @@ export class AllProductsComponent implements OnInit {
       console.log(error)
     })
   }
+  //know what category user selected
+  filterProductsByCategory(event:any){
+  let value=event.target.value
+  value==="All"?this.getProducts() :  this.getProductOfCategory(value)
+  }
+  //pass the selected category to the service
+  getProductOfCategory(category:string){
+    this.service.getProductsOfCategory(category).subscribe(res=>{
+      this.products=res
+    })
+  }
 }
