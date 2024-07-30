@@ -2,16 +2,13 @@
 
 <div class="my-2 w-25">
     <label for="select">Categories</label>
-    <select class="form-control">
-        <option value="1">option1</option>
-        <option value="2">option2</option>
-        <option value="3">option3</option>
-        <option value="4">option4</option>
+    <select class="form-control" >
+        <option value="{{category}}" *ngFor="let category of categories">{{category}}</option>
     </select>
 </div>
 
 <div class="row">
-    <div class="col-md-3 col-sm-12" *ngFor="let item of products | async">
+    <div class="col-md-3 col-sm-12" *ngFor="let item of products">
 
 <div class="card" style="width: 18rem;">
 
