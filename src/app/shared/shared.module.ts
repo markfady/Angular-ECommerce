@@ -5,11 +5,13 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
 import { AllProductsComponent } from '../products/components/all-products/all-products.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -17,6 +19,6 @@ import { AllProductsComponent } from '../products/components/all-products/all-pr
     HttpClientModule,
     RouterModule //add routerModule here cause shared is called inside app module so the routing works 
   ],
-  exports:[HeaderComponent]
+  exports:[HeaderComponent,SpinnerComponent]
 })
 export class SharedModule { }
