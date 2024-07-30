@@ -11,7 +11,6 @@
 
 <div class="row">
     <div class="col-md-3 col-sm-12" *ngFor="let item of products">
-
 <div class="card" style="width: 18rem;">
 
     <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
@@ -22,5 +21,9 @@
       <span>{{item.price}}$</span>
     </div>
   </div> 
+
 </div>
+</div>
+<div *ngIf="loading" class="text-center w100">
+  <pm-spinner></pm-spinner>
 </div>
