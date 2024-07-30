@@ -15,4 +15,7 @@ export class ProductsService {
   getCategories(){
     return this.http.get<Product[]>('https://fakestoreapi.com/products/categories')
   }
+  getProductsOfCategory(category:string){
+    return this.http.get<Product[]>(`https://fakestoreapi.com/products/category/${category}`)
+  }
 }
