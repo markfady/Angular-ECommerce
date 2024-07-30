@@ -5,6 +5,7 @@ import { ProductsDetailsComponent } from './components/products-details/products
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
    CommonModule,
     BrowserModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],exports:[AllProductsComponent]
 })
 export class ProductsModule { }
