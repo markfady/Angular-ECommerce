@@ -13,7 +13,7 @@ export class AllProductsComponent implements OnInit {
   
   products: Product[] = [];
   categories:any[]=[];
-  loading:boolean=true
+  loading:boolean=false
 
   constructor(private service: ProductsService) { }
 
