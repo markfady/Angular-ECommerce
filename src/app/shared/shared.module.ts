@@ -8,6 +8,7 @@ import { AllProductsComponent } from '../products/components/all-products/all-pr
 import { SpinnerComponent } from './spinner/spinner.component';
 import { SelectComponent } from './components/select/select.component';
 import { ProductComponent } from './components/product/product.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ProductComponent } from './components/product/product.component';
     CommonModule,
     BrowserModule,
     HttpClientModule,
+    FormsModule, //add FormModule to use ngModel
     RouterModule //add routerModule here cause shared is called inside app module so the routing works 
   ],
   exports:[HeaderComponent,SpinnerComponent,SelectComponent,ProductComponent]
