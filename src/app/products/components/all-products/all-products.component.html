@@ -7,17 +7,8 @@
 
 <div class="row" *ngIf="!loading">
     <div class="col-md-3 col-sm-12" *ngFor="let item of products">
-<div class="card" style="width: 18rem;">
-
-    <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{item.title}}</h5>
-      <p class="card-text">{{item.description}}</p>
-      <a href="#" class="btn btn-primary">Add to cart</a>
-      <span>{{item.price}}$</span>
-    </div>
-  </div> 
-
+      <!---usable product component -->
+      <pm-product [item]="item"></pm-product>
 </div>
 </div>
 <div *ngIf="loading" class="text-center w100">
