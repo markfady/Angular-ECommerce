@@ -1,12 +1,8 @@
 <p>all-products works!</p>
 
+<!-- usable select component  -->
 <div class="my-2 w-25">
-    <label for="select">Categories</label>
-
-    <select class="form-control" (change)="filterProductsByCategory($event)" >
-      <option value="All" >All</option>
-      <option value="{{category}}" *ngFor="let category of categories">{{category}}</option>
-    </select>
+  <pm-select [title]="'Categories'" [data]="categories" (selectedValue)="filterProductsByCategory($event)"></pm-select>
 </div>
 
 <div class="row" *ngIf="!loading">
