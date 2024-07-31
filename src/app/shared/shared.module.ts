@@ -6,12 +6,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
 import { AllProductsComponent } from '../products/components/all-products/all-products.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { SelectComponent } from './components/select/select.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,
@@ -19,6 +21,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     HttpClientModule,
     RouterModule //add routerModule here cause shared is called inside app module so the routing works 
   ],
-  exports:[HeaderComponent,SpinnerComponent]
+  exports:[HeaderComponent,SpinnerComponent,SelectComponent]
 })
 export class SharedModule { }
