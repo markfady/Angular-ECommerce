@@ -14,6 +14,7 @@ export class AllProductsComponent implements OnInit {
   products: Product[] = [];
   categories:any[]=[];
   loading:boolean=false
+  cartProducts:any[]=[]
 
   constructor(private service: ProductsService) { }
 
@@ -60,4 +61,21 @@ export class AllProductsComponent implements OnInit {
       this.products=res
     })
   }
+  addToCart(event: any) {
+    console.log(event);
+    if ("cart" in localStorage) {
+      // If 'cart' exists in localStorage, parse the JSON string and assign it to cartProducts
+      this.cartProducts = JSON.parse(localStorage.getItem("cart")!);
+      // Add the new product to the cartProducts array
+      this.cartProducts.push(event);
+      // Update localStorage with the new cartProducts array
+      localStorage.setItem("cart", JSON.stringify(this.cartProducts));
+    } else {
+      // If 'cart' does not exist in localStorage, initialize cartProducts as an array with the new product
+      this.cartProducts = [event];
+      // Set the new cartProducts array in localStorage
+      localStorage.setItem("cart", JSON.stringify(this.cartProducts));
+    }
+  }
+  
 }
