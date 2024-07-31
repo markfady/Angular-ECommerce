@@ -66,10 +66,18 @@ export class AllProductsComponent implements OnInit {
     if ("cart" in localStorage) {
       // If 'cart' exists in localStorage, parse the JSON string and assign it to cartProducts
       this.cartProducts = JSON.parse(localStorage.getItem("cart")!);
-      // Add the new product to the cartProducts array
-      this.cartProducts.push(event);
-      // Update localStorage with the new cartProducts array
-      localStorage.setItem("cart", JSON.stringify(this.cartProducts));
+      //to prevent addition item more than 1 time
+      let exist=this.cartProducts.find(item=>item.id==event.id)
+      if(exist){
+        alert("product is already added in cart")
+      }
+      else{
+        // Add the new product to the cartProducts array
+        this.cartProducts.push(event);
+        // Update localStorage with the new cartProducts array
+        localStorage.setItem("cart", JSON.stringify(this.cartProducts));
+        
+      }
     } else {
       // If 'cart' does not exist in localStorage, initialize cartProducts as an array with the new product
       this.cartProducts = [event];
