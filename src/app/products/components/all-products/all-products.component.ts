@@ -67,7 +67,7 @@ export class AllProductsComponent implements OnInit {
       // If 'cart' exists in localStorage, parse the JSON string and assign it to cartProducts
       this.cartProducts = JSON.parse(localStorage.getItem("cart")!);
       //to prevent addition item more than 1 time
-      let exist=this.cartProducts.find(item=>item.id==event.id)
+      let exist=this.cartProducts.find(item=>item.item.id==event.item.id) //item.item cause it's now object composed of item and quantity key , not array of items only
       if(exist){
         alert("product is already added in cart")
       }
