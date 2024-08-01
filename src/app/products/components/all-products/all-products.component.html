@@ -8,7 +8,7 @@
 <div class="row" *ngIf="!loading">
     <div class="col-md-3 col-sm-12" *ngFor="let item of products">
       <!---usable product component -->
-      <pm-product [item]="item" (data)="addToCart($event)"></pm-product>
+      <pm-product [item]="item" (data)="addToCart($event)" routerLink="/details/{{item.id}}"></pm-product>
 </div>
 </div>
 <div *ngIf="loading" class="text-center w100">
