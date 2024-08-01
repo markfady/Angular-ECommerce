@@ -7,4 +7,11 @@ export interface Product {
     image: string;
   category:string
   rating:[rate:number,count:number]
+
+  }
+
+  export interface CartProduct 
+  {
+    item: Product;
+    quantity:number
   }
