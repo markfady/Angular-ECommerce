@@ -12,18 +12,22 @@ import { Product } from '../../productsInterface';
 export class ProductsDetailsComponent implements OnInit {
   id:any
   productDetails!:Product; // Changed from Product[] to Product
+  loading:boolean=false
   constructor(private route:ActivatedRoute,private service:ProductsService) {
       this.id=route.snapshot.paramMap.get('id');
       console.log(this.id)
    }
 
   ngOnInit(): void {
+    
     this.getProductDetails(this.id)
   }
 //response from getProductByID is a single Product object, not an array. Therefore, handle the response accordingly
 
  getProductDetails(id: any): void {
+  this.loading=true
   this.service.getProductByID(id).subscribe((res:Product) => {
+    this.loading=false
     this.productDetails = res; // Directly assign the response object
     console.log(res);
   });
