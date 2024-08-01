@@ -18,4 +18,7 @@ export class ProductsService {
   getProductsOfCategory(category:string){
     return this.http.get<Product[]>(`https://fakestoreapi.com/products/category/${category}`)
   }
+  getProductByID(id:any):Observable<Product>{
+    return this.http.get<Product>(`https://fakestoreapi.com/products/${id}`)
+  }
 }
