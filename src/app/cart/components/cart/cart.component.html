@@ -1,1 +1,20 @@
 <p>cart works!</p>
+<div class="container">
+    <h1 class="my-4">Shopping Cart</h1>
+    <div class="cart-item" *ngFor="let item of cartProducts">
+      <img src="{{item.item.image}}" alt="Product Image">
+      <div class="item-details">
+        <h5>{{item.item.title}}</h5>
+        <p class="text-muted">{{item.item.description}}.</p>
+        <p class="font-weight-bold">${{item.item.price}}</p>
+      </div>
+      <div class="quantity-controls">
+        <button class="btn btn-secondary btn-sm" >-</button>
+        <input type="number" class="form-control form-control-sm" value="1" [(ngModel)]="item.quantity">
+        <button class="btn btn-secondary btn-sm">+</button>
+      </div>
+      <p class="mx-2 font-weight-bold">Total : {{item.item.price * item.quantity}}</p>
+      <button class="btn btn-danger btn-sm delete-button">Delete</button>
+    </div>
+    <p>Total invoice: {{total}}</p>
+</div>
