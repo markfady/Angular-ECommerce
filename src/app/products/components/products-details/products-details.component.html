@@ -1,1 +1,22 @@
 <p>products-details works!</p>
+    <div class="row">
+
+  
+        <!-- Since productDetails is a single object and not an array, you cannot use *ngFor to loop over it. Instead, 
+        directly access its properties in the template.-->
+    <div class="col-md-7 col-sm-12">
+<!-- 
+The TypeError: Cannot read properties of undefined (reading 'title') indicates that the productDetails object is not yet defined when the template tries to access its properties
+.This typically happens before the HTTP request completes and assigns the data to productDetails.
+you should use the *ngIf directive to ensure that the template only tries to access productDetails properties after productDetails is defined. -->
+
+        <div class="info" *ngIf="productDetails">
+            <ul class="list-unstyled">
+                <li><strong>Title:</strong> {{productDetails.title}}</li>
+                <li><strong>Category:</strong> {{productDetails.category}}</li>
+                <li><strong>Description:</strong> {{productDetails.description}}</li>
+                <li><strong>Price:</strong> {{productDetails.price}}</li>
+              </ul>
+        </div>
+    </div>
+</div>
