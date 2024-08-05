@@ -27,4 +27,17 @@ getCartProducts(){
       this.total+=this.cartProducts[x].quantity*this.cartProducts[x].item.price
     }
   }
+  //save the incremented quantity value in the localStorage
+  addAmout(index:number){
+    this.cartProducts[index].quantity++
+    this.getCartTotal() //to calculate the new total when the quantity value of product changes
+    localStorage.setItem("cart",JSON.stringify(this.cartProducts))
+
+  }
+  minusAmout(index:number){
+    this.cartProducts[index].quantity--
+    this.getCartTotal()
+    localStorage.setItem("cart",JSON.stringify(this.cartProducts))
+
+  }
 }
