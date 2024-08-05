@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartProduct, Product } from 'src/app/products/productsInterface';
+import { CartService } from '../../service/cart.service';
 
 @Component({
   selector: 'pm-cart',
@@ -9,7 +10,8 @@ import { CartProduct, Product } from 'src/app/products/productsInterface';
 export class CartComponent implements OnInit {
   cartProducts:CartProduct[]=[]
   total:number=0
-  constructor() { }
+  success:boolean=false
+  constructor(private service:CartService) { }
 
   ngOnInit(): void {
     this.getCartProducts()
@@ -48,5 +50,26 @@ getCartProducts(){
   deleteProduct(index:number){
       this.cartProducts.splice(index,1)
       localStorage.setItem("cart",JSON.stringify(this.cartProducts))
+  }
+  clearCart(){
+    this.cartProducts=[]
+    this.getCartTotal()
+    localStorage.setItem("cart",JSON.stringify(this.cartProducts))
+  }
+  sendOrder(){
+    //each item saved inside array and this array saved inside a big object'orderDetails'
+    let products=this.cartProducts.map(order=>{
+      return {productID:order.item.id,productName:order.item.title,quantity:order.quantity}
+    })
+    //send this object start with date of order and each item with it's quantity saved in it's array and all items arrays in order saved in one big object
+    let Model=
+    {
+      date:new Date,
+      orderDetails:products
+    }
+    this.service.createNewOrder(Model).subscribe(res=>{
+      this.success=true
+    })
+    console.log(Model)
   }
 }
