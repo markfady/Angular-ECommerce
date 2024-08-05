@@ -40,4 +40,13 @@ getCartProducts(){
     localStorage.setItem("cart",JSON.stringify(this.cartProducts))
 
   }
+  //takes the value passed from ngModel and set the change in local sotrage
+  detectChange(){
+    localStorage.setItem("cart",JSON.stringify(this.cartProducts))
+  }
+  //delete the item with specific index
+  deleteProduct(index:number){
+      this.cartProducts.splice(index,1)
+      localStorage.setItem("cart",JSON.stringify(this.cartProducts))
+  }
 }
