@@ -1,6 +1,7 @@
 <p>cart works!</p>
 <div class="container">
     <h1 class="my-4">Shopping Cart</h1>
+    <button class="btn-danger" (click)="clearCart()"> clear shopping cart</button>
     <div class="cart-item" *ngFor="let item of cartProducts; let index=index">
       <img src="{{item.item.image}}" alt="Product Image">
       <div class="item-details">
@@ -17,4 +18,8 @@
       <button class="btn btn-danger btn-sm delete-button" (click)="deleteProduct(index)">Delete</button>
     </div>
     <p>Total invoice: {{total}}</p>
+    <button (click)="sendOrder()">Order now</button>
+    <div class="alert alert-success" role="alert" *ngIf="success">
+Your order is placed successfully
+    </div>
 </div>
